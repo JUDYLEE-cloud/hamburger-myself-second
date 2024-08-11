@@ -1,0 +1,74 @@
+:root {
+    --hamburger-box: red;
+    --hamburger: white;
+}
+
+html, body {
+    height: 100%;
+}
+body, label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+body {
+    background-color: var(--hamburger-box);
+}
+
+.title {
+    padding-bottom: 30px;
+    color: var(--hamburger);
+    font-size: 20px;
+}
+
+.hamburger-box {
+    height: 100px;
+    width: 100px;
+    background-color: var(--hamburger-box);
+    position: relative;
+}
+
+.hamburger {
+    width: 100%;
+    height: 10px;
+    background-color: var(--hamburger);
+    position: absolute;
+}
+.hamburger::before, .hamburger::after {
+    content: " ";
+    width: 100%;
+    height: 10px;
+    background-color: var(--hamburger);
+    position: absolute;
+}
+.hamburger {
+    top: 50%;
+}
+.hamburger::before {
+    top: -20px;
+}
+.hamburger::after {
+    top: 20px;
+}
+
+.hamburger,
+.hamburger::before, 
+.hamburger::after {
+    transition: 1s ease;
+}
+
+.button {
+    opacity: 0;
+}
+.button:checked ~ .hamburger::before {
+    top: 0;
+    transform: rotate(-45deg);
+}
+.button:checked ~ .hamburger {
+    background-color: var(--hamburger-box);
+}
+.button:checked ~ .hamburger::after {
+    top: 0;
+    transform: rotate(45deg);
+}
